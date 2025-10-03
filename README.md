@@ -1,209 +1,200 @@
-# Exercícios de Threads Linux - POSIX
+Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em C (usando pthreads) e Java (usando java.util.concurrent).
 
-Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em **C** (usando pthreads) e **Java** (usando java.util.concurrent).
-
-## 📁 Estrutura do Projeto
-
-```
+📁 Estrutura do Projeto
 trabalhoso/
 ├── linux-threads/
-│   ├── parte1/src/threads_parte1.c    # Análise de performance com threads
-│   └── parte2/src/threads_parte2.c    # Problema do barbeiro adormecido
+│   ├── parte1/src/threads_parte1.c
+│   └── parte2/src/threads_parte2.c
+├── exercicios_posix/
+│   ├── exercicio1_duplo_buffer.c
+│   ├── exercicio2_filosofos.c
+│   ├── exercicio3_robos.c
+│   ├── exercicio4_rendezvous.c
+│   └── exercicio5_barreira.c
 ├── atividades_posix/
 │   ├── C/
-│   │   ├── atividade1.c              # Produtor/Consumidor com Semáforos
-│   │   ├── atividade2.c              # Produtor/Consumidor com Condition Variables
-│   │   ├── atividade3.c              # Leitores/Escritores com Semáforos
-│   │   └── atividade4.c              # Leitores/Escritores com RWLocks
+│   │   ├── atividade1.c
+│   │   ├── atividade2.c
+│   │   ├── atividade3.c
+│   │   └── atividade4.c
 │   └── Java/
-│       ├── Atividade1.java           # Produtor/Consumidor com Semaphore
-│       ├── Atividade2.java           # Produtor/Consumidor com Lock/Condition
-│       ├── Atividade3.java           # Leitores/Escritores com Semaphore
-│       └── Atividade4.java           # Leitores/Escritores com ReadWriteLock
-├── bins/                             # Diretório para executáveis C
-├── nomes.txt                         # Lista de nomes para os exercícios
-└── Makefile                          # Build system completo
-```
+│       ├── Atividade1.java
+│       ├── Atividade2.java
+│       ├── Atividade3.java
+│       └── Atividade4.java
+├── entrega2/
+│   └── atividade2/
+│       └── BarbeiroDorminhocoMonitores.java
+├── bins/
+├── nomes.txt
+└── Makefile
 
-## 🔧 Pré-requisitos
+🔧 Pré-requisitos
+Windows (WSL)
 
-### Windows (WSL)
-- **WSL** (Windows Subsystem for Linux) instalado
-- **GCC** com suporte a pthread no WSL
-- **Java JDK** (versão 8 ou superior)
-- **Make** (disponível no WSL)
+WSL instalado
 
-### Linux/macOS
-- **GCC** com suporte a pthread
-- **Java JDK** (versão 8 ou superior)
-- **Make**
+GCC com pthread no WSL
 
-## 🚀 Como Compilar e Executar
+Java JDK (8+)
 
-### Compilar Todos os Programas
-```bash
-# Compilar apenas programas C
+Make
+
+Linux/macOS
+
+GCC com pthread
+
+Java JDK (8+)
+
+Make
+
+🚀 Como Compilar e Executar
+Compilar Todos os Programas
+# Apenas C
 make c-all
 
-# Compilar apenas programas Java
+# Apenas Java
 make java-all
 
-# Compilar tudo (padrão)
+# Tudo
 make all
-```
 
-### Executar Programas
-```bash
-# Executar apenas programas C
+Executar Programas
+# Apenas C
 make run-c
 
-# Executar apenas programas Java
+# Apenas Java
 make run-java
 
-# Executar tudo
+# Tudo
 make run-all
-```
 
-### Limpeza
-```bash
-# Remover binários e arquivos .class
+Limpeza
 make clean
-```
 
-### Verificar WSL (Windows)
-```bash
-# Testar se WSL está funcionando
+Verificar WSL (Windows)
 make check-wsl
-```
 
-## 📚 Descrição dos Exercícios
+📚 Descrição dos Exercícios
+Parte 1: Análise de Performance (threads_parte1.c)
 
-### Parte 1: Análise de Performance (`threads_parte1.c`)
-- **Objetivo**: Medir performance de computação matemática com múltiplas threads
-- **Conceitos**: Criação de threads, sincronização básica, medição de tempo
-- **Função**: Cálculo de `f(x) = (x² + 1) / (2x + 3)` em paralelo
+Objetivo: medir performance com múltiplas threads
 
-### Parte 2: Barbeiro Adormecido (`threads_parte2.c`)
-- **Objetivo**: Implementar o problema clássico do barbeiro adormecido
-- **Conceitos**: Mutex, condition variables, buffer circular
-- **Sincronização**: 1 mutex e 1 condition variable
+Conceitos: criação de threads, sincronização básica, medição de tempo
 
-### Atividade 1: Produtor/Consumidor com Semáforos
-- **C**: Usa `sem_t` (POSIX semaphores)
-- **Java**: Usa `java.util.concurrent.Semaphore`
-- **Buffer**: Tamanho fixo de 10 elementos
-- **Sincronização**: Semáforos para controle de recursos
+Função: f(x) = (x² + 1) / (2x + 3)
 
-### Atividade 2: Produtor/Consumidor com Condition Variables
-- **C**: Usa `pthread_cond_t` e `pthread_mutex_t`
-- **Java**: Usa `ReentrantLock` e `Condition`
-- **Controle**: Baseado em contadores e condições
+Parte 2: Barbeiro Adormecido (threads_parte2.c)
 
-### Atividade 3: Leitores/Escritores com Semáforos
-- **C**: Implementação com prioridade para escritores
-- **Java**: Equivalente usando `Semaphore` para coordenação
-- **Política**: Múltiplos leitores simultâneos, escritor exclusivo
+Objetivo: implementar o problema clássico do barbeiro adormecido
 
-### Atividade 4: Leitores/Escritores com RWLocks
-- **C**: Usa `pthread_rwlock_t` com `PTHREAD_RWLOCK_PREFER_WRITER_NP`
-- **Java**: Usa `ReentrantReadWriteLock` com política de escritor preferencial
-- **Otimização**: Locks otimizados para leitura/escrita
+Conceitos: mutex, condition variables, buffer circular
 
-## 🎯 Conceitos Implementados
+Sincronização: 1 mutex e 1 condition variable
 
-### Primitivas de Sincronização em C
-- **Semáforos POSIX** (`sem_t`)
-- **Mutex** (`pthread_mutex_t`)
-- **Condition Variables** (`pthread_cond_t`)
-- **Read-Write Locks** (`pthread_rwlock_t`)
+Atividade 1: Produtor/Consumidor com Semáforos
 
-### Equivalentes em Java
-- **Semaphore** (`java.util.concurrent.Semaphore`)
-- **ReentrantLock** (`java.util.concurrent.locks.ReentrantLock`)
-- **Condition** (`java.util.concurrent.locks.Condition`)
-- **ReadWriteLock** (`java.util.concurrent.locks.ReadWriteLock`)
+C: sem_t
 
-### Padrões de Concorrência
-- **Produtor/Consumidor**: Coordenação de produção e consumo de recursos
-- **Leitores/Escritores**: Controle de acesso para leitura e escrita concorrente
-- **Exclusão Mútua**: Acesso exclusivo a recursos compartilhados
-- **Sinalização**: Comunicação entre threads
+Java: Semaphore
 
-## 🏃‍♂️ Exemplos de Execução
+Buffer fixo
 
-### Executar Atividade Específica (C)
-```bash
-# Compilar e executar produtor/consumidor com semáforos
+Sincronização por semáforos
+
+Atividade 2: Produtor/Consumidor com Condition Variables
+
+C: pthread_cond_t + pthread_mutex_t
+
+Java: ReentrantLock + Condition
+
+Controle por contadores/condições
+
+Atividade 3: Leitores/Escritores com Semáforos
+
+C: prioridade para escritores
+
+Java: Semaphore
+
+Política: leitores simultâneos, escritor exclusivo
+
+Atividade 4: Leitores/Escritores com RWLocks
+
+C: pthread_rwlock_t
+
+Java: ReentrantReadWriteLock
+
+Política de escritor preferencial
+
+🧩 Atividade 2 (Arquitetura) — Barbeiro Dorminhoco (Java, Monitores)
+
+Local: entrega2/atividade2/BarbeiroDorminhocoMonitores.java
+Sincronização: apenas monitores Java (synchronized, wait, notifyAll)
+Parâmetros (CLI): n_barbeiros m_cadeiras total_clientes
+Mensagens: estados de cliente (esperando, cortando, terminou/saindo, barbearia lotada) e barbeiro (dormindo/acordou)
+
+Compilar
+javac entrega2/atividade2/BarbeiroDorminhocoMonitores.java
+
+Executar (exemplo)
+java -cp entrega2/atividade2 BarbeiroDorminhocoMonitores 2 4 6
+
+🎯 Conceitos Implementados
+Primitivas de Sincronização em C
+
+sem_t, pthread_mutex_t, pthread_cond_t, pthread_rwlock_t
+
+Equivalentes em Java
+
+Semaphore, ReentrantLock, Condition, ReadWriteLock
+
+Padrões de Concorrência
+
+Produtor/Consumidor, Leitores/Escritores, Exclusão Mútua, Sinalização
+
+🏃‍♂️ Exemplos de Execução
+C (exemplo)
 wsl gcc -Wall -Wextra -pthread -lm -o bins/atividade1 atividades_posix/C/atividade1.c
 wsl ./bins/atividade1
-```
 
-### Executar Atividade Específica (Java)
-```bash
-# Compilar e executar leitores/escritores com ReadWriteLock
+Java (exemplo)
 cd atividades_posix/Java
 javac Atividade4.java
 java Atividade4
-```
 
-### Parâmetros Customizáveis
-Muitos programas aceitam parâmetros para customizar o número de threads:
-```bash
-# C: 5 produtores, 3 consumidores
+Parâmetros customizáveis
+# C
 wsl ./bins/atividade1 5 3
 
-# Java: 4 leitores, 2 escritores
+# Java
 java Atividade4 4 2
-```
 
-## 📊 Características dos Programas
+📊 Características
 
-### Performance e Medição
-- Todos os programas incluem medição de tempo de execução
-- Saída formatada para análise de resultados
-- Logs detalhados das operações das threads
+Medição de tempo
 
-### Robustez
-- Tratamento adequado de erros
-- Cleanup de recursos (join de threads)
-- Inicialização correta de primitivas de sincronização
+Saída organizada
 
-### Configurabilidade
-- Número de threads personalizável
-- Tempos de sleep ajustáveis
-- Tamanhos de buffer configuráveis
+join e limpeza de recursos
 
-## 🔍 Debugging e Análise
+Números de threads, sleeps e buffers configuráveis
 
-### Verificação de Deadlocks
-Os programas são implementados seguindo padrões que evitam deadlocks:
-- Ordem consistente de aquisição de locks
-- Timeouts em operações críticas
-- Liberação adequada de recursos
+🔍 Debug/Análise
 
-### Análise de Concorrência
-Para analisar o comportamento:
-- Observe a saída dos logs para verificar intercalação de threads
-- Use ferramentas como `valgrind --tool=helgrind` (Linux)
-- Monitor de performance para verificar utilização de CPU
+Evita deadlocks por ordem de locks e sinalização correta
 
-## 📝 Notas Importantes
+Dicas: valgrind --tool=helgrind (Linux), observar logs
 
-- **WSL**: Necessário no Windows para compilação com pthread
-- **Ordem de Execução**: As threads podem executar em ordem diferente a cada execução
-- **Performance**: Os resultados de tempo podem variar conforme a carga do sistema
-- **Portabilidade**: Código C compatível com Linux/Unix, Java é multiplataforma
+📝 Notas
 
-## 🎓 Valor Educacional
+WSL necessário no Windows para pthread
 
-Este conjunto de exercícios cobre:
-- **Programação Concorrente**: Conceitos fundamentais de threads
-- **Sincronização**: Diferentes mecanismos e suas aplicações
-- **Problemas Clássicos**: Produtor/consumidor, leitores/escritores, barbeiro
-- **Comparação de Linguagens**: Implementações equivalentes em C e Java
-- **Boas Práticas**: Código limpo, tratamento de erros, documentação
+Intercalação de threads varia por execução
 
----
-**Autor**: Exercícios de Sistemas Operacionais  
-**Linguagens**: C (POSIX Threads) + Java (java.util.concurrent)  
-**Ambiente**: Linux/WSL + Windows
+Performance depende da carga do sistema
+
+C focado em Linux/Unix; Java multiplataforma
+
+Autor: Exercícios de Sistemas Operacionais
+Linguagens: C (POSIX) + Java (concurrent + monitores)
+Ambiente: Linux/WSL + Windows
