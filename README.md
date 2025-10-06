@@ -1,7 +1,14 @@
 Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em C (usando pthreads) e Java (usando java.util.concurrent).
 
-```text
+# 💻 Exercícios de Threads Linux — POSIX
 
+Este repositório contém implementações completas dos **exercícios de programação com threads em Linux**, incluindo versões em **C (usando pthreads)** e **Java (usando java.util.concurrent e monitores)**.  
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
 📁 Estrutura do Projeto
 
 trabalhoso/
@@ -25,192 +32,213 @@ trabalhoso/
 │       └── exercicio5_barreira.c
 │
 ├── linux-threads/
-│   ├── parte1/
-│   │   ├── scripts/
-│   │   └── src/
-│   │       └── threads_parte1.c
-│   └── parte2/
-│       └── src/
-│           └── threads_parte2.c
+│   ├── parte1/src/threads_parte1.c
+│   └── parte2/src/threads_parte2.c
 │
 ├── entrega2/
 │   └── BarbeiroDorminhocoMonitores.java
+│
+├── entrega3/
+│   └── DeadlockBarbeiros.java
 │
 ├── bins/
 ├── nomes.txt
 ├── Makefile
 └── README.md
+```
 
+---
 
+## 🔧 Pré-requisitos
 
-🔧 Pré-requisitos
-Windows (WSL)
+### Windows (WSL)
+- WSL instalado  
+- GCC com pthread  
+- Java JDK 8+  
+- Make  
 
-WSL instalado
+### Linux / macOS
+- GCC com pthread  
+- Java JDK 8+  
+- Make  
 
-GCC com pthread no WSL
+---
 
-Java JDK (8+)
+## 🚀 Como Compilar e Executar
 
-Make
-
-Linux/macOS
-
-GCC com pthread
-
-Java JDK (8+)
-
-Make
-
-🚀 Como Compilar e Executar
-Compilar Todos os Programas
-# Apenas C
-make c-all
-
-# Apenas Java
-make java-all
-
+### Compilar
+```bash
 # Tudo
 make all
-
-Executar Programas
 # Apenas C
-make run-c
-
+make c-all
 # Apenas Java
-make run-java
+make java-all
+```
 
+### Executar
+```bash
 # Tudo
 make run-all
+# Apenas C
+make run-c
+# Apenas Java
+make run-java
+```
 
-Limpeza
+### Limpeza
+```bash
 make clean
+```
 
-Verificar WSL (Windows)
+### Verificar WSL
+```bash
 make check-wsl
+```
 
-📚 Descrição dos Exercícios
-Parte 1: Análise de Performance (threads_parte1.c)
+---
 
-Objetivo: medir performance com múltiplas threads
+## 📚 Descrição dos Exercícios
 
-Conceitos: criação de threads, sincronização básica, medição de tempo
+### Parte 1 — Análise de Performance (`threads_parte1.c`)
+- Objetivo: medir performance com múltiplas threads.  
+- Função: f(x) = (x² + 1) / (2x + 3).  
+- Conceitos: criação de threads, sincronização básica, medição de tempo.  
 
-Função: f(x) = (x² + 1) / (2x + 3)
+### Parte 2 — Barbeiro Adormecido (`threads_parte2.c`)
+- Objetivo: implementar o problema clássico do barbeiro adormecido.  
+- Sincronização: 1 mutex e 1 condition variable.  
+- Conceitos: mutex, condition variables, buffer circular.  
 
-Parte 2: Barbeiro Adormecido (threads_parte2.c)
+---
 
-Objetivo: implementar o problema clássico do barbeiro adormecido
+### Atividades POSIX
 
-Conceitos: mutex, condition variables, buffer circular
+**Atividade 1 — Produtor/Consumidor (Semáforos)**  
+C: `sem_t` Java: `Semaphore` Buffer fixo e controle por semáforos.  
 
-Sincronização: 1 mutex e 1 condition variable
+**Atividade 2 — Produtor/Consumidor (Condition Variables)**  
+C: `pthread_cond_t` + `pthread_mutex_t` Java: `ReentrantLock` + `Condition`.  
 
-🧩 Exercícios POSIX:
+**Atividade 3 — Leitores/Escritores (Semáforos)**  
+C: prioridade para escritores Java: `Semaphore`.  
 
-Exercicio 1: Produtor/Consumidor com Semáforos
+**Atividade 4 — Leitores/Escritores (RWLocks)**  
+C: `pthread_rwlock_t` Java: `ReentrantReadWriteLock` (escritor preferencial).  
 
-C: sem_t
+---
 
-Java: Semaphore
+## 🧩 Entrega 2 — O Barbeiro Dorminhoco (Java / Monitores)
 
-Buffer fixo
+**Local:** `entrega2/BarbeiroDorminhocoMonitores.java`  
+**Sincronização:** apenas monitores Java (`synchronized`, `wait`, `notifyAll`)  
 
-Sincronização por semáforos
+**Parâmetros (CLI):**
+```
+n_barbeiros m_cadeiras total_clientes
+```
 
-Exercicio 2: Produtor/Consumidor com Condition Variables
+**Compilar:**
+```bash
+javac entrega2/BarbeiroDorminhocoMonitores.java
+```
 
-C: pthread_cond_t + pthread_mutex_t
+**Executar (exemplo):**
+```bash
+java -cp entrega2 BarbeiroDorminhocoMonitores 2 4 6
+```
 
-Java: ReentrantLock + Condition
+---
 
-Controle por contadores/condições
+## 🧩 Entrega 3 — Trabalho de Deadlocks (O Problema dos Barbeiros)
 
-Exercicio 3: Leitores/Escritores com Semáforos
+**Local:** `entrega3/DeadlockBarbeiros.java`  
+**Base:** *Tanenbaum – Sistemas Operacionais Modernos*  
 
-C: prioridade para escritores
+**Descrição:**
+- Vários barbeiros e cadeiras de espera.  
+- Clientes chegam → sentam se tiver vaga, senão saem.  
+- Barbeiros dormem sem clientes.  
+- Evita **deadlocks** e **starvation**.  
+- Sincronização com monitores Java (`wait/notifyAll`).  
 
-Java: Semaphore
+**Execução:**
+```bash
+javac entrega3/DeadlockBarbeiros.java
+java -cp entrega3 DeadlockBarbeiros 2 4 10
+```
 
-Política: leitores simultâneos, escritor exclusivo
+**Saída esperada:**
+```
+Cliente 1 cortando cabelo com Barbeiro 2
+Cliente 3 terminou e saiu da barbearia
+Cliente 5 tentou entrar, mas estava lotada
+Barbeiro 1 dormindo...
+Barbeiro 2 acordou! Começando os trabalhos!
+```
 
-Exercicio 4: Leitores/Escritores com RWLocks
+---
 
-C: pthread_rwlock_t
+## 🎯 Conceitos Implementados
 
-Java: ReentrantReadWriteLock
+**Primitivas C:** `sem_t`, `pthread_mutex_t`, `pthread_cond_t`, `pthread_rwlock_t`  
+**Primitivas Java:** `Semaphore`, `ReentrantLock`, `Condition`, `ReadWriteLock`, `wait/notifyAll`  
 
-Política de escritor preferencial
+**Padrões de Concorrência:** Produtor/Consumidor, Leitores/Escritores, Exclusão Mútua, Sinalização, Controle de Deadlocks.  
 
-🧩 Atividade 2 (Arquitetura) — Barbeiro Dorminhoco (Java, Monitores)
+---
 
-Local: entrega2/atividade2/BarbeiroDorminhocoMonitores.java
-Sincronização: apenas monitores Java (synchronized, wait, notifyAll)
-Parâmetros (CLI): n_barbeiros m_cadeiras total_clientes
-Mensagens: estados de cliente (esperando, cortando, terminou/saindo, barbearia lotada) e barbeiro (dormindo/acordou)
+## 🏃‍♂️ Exemplos de Execução
 
-Compilar
-javac entrega2/atividade2/BarbeiroDorminhocoMonitores.java
-
-Executar (exemplo)
-java -cp entrega2/atividade2 BarbeiroDorminhocoMonitores 2 4 6
-
-🎯 Conceitos Implementados
-Primitivas de Sincronização em C
-
-sem_t, pthread_mutex_t, pthread_cond_t, pthread_rwlock_t
-
-Equivalentes em Java
-
-Semaphore, ReentrantLock, Condition, ReadWriteLock
-
-Padrões de Concorrência
-
-Produtor/Consumidor, Leitores/Escritores, Exclusão Mútua, Sinalização
-
-🏃‍♂️ Exemplos de Execução
-C (exemplo)
-wsl gcc -Wall -Wextra -pthread -lm -o bins/atividade1 atividades_posix/C/atividade1.c
+**C:**
+```bash
+wsl gcc -Wall -Wextra -pthread -lm -o bins/atividade1 entrega1/atividades_posix/C/atividade1.c
 wsl ./bins/atividade1
+```
 
-Java (exemplo)
-cd atividades_posix/Java
+**Java:**
+```bash
+cd entrega1/atividades_posix/Java
 javac Atividade4.java
 java Atividade4
+```
 
-Parâmetros customizáveis
+**Parâmetros:**
+```bash
 # C
 wsl ./bins/atividade1 5 3
-
 # Java
 java Atividade4 4 2
+```
 
-📊 Características
+---
 
-Medição de tempo
+## 📊 Características
 
-Saída organizada
+- Medição de tempo e saída organizada.  
+- join() e liberação de recursos correta.  
+- Evita condições de corrida e deadlocks.  
+- Número de threads, sleep e buffers configuráveis.  
 
-join e limpeza de recursos
+---
 
-Números de threads, sleeps e buffers configuráveis
+## 🔍 Debug / Análise
 
-🔍 Debug/Análise
+- Use `valgrind --tool=helgrind` no Linux.  
+- Observe os logs para verificar interleaving.  
+- Ordem de locks garante segurança contra deadlocks.  
 
-Evita deadlocks por ordem de locks e sinalização correta
+---
 
-Dicas: valgrind --tool=helgrind (Linux), observar logs
+## 📝 Notas
 
-📝 Notas
+- WSL é necessário no Windows para pthread.  
+- A ordem das threads muda a cada execução.  
+- Performance depende da carga do sistema.  
+- C focado em Linux/Unix; Java multiplataforma.  
 
-WSL necessário no Windows para pthread
+---
 
-Intercalação de threads varia por execução
-
-Performance depende da carga do sistema
-
-C focado em Linux/Unix; Java multiplataforma
-
-Autor: Exercícios de Sistemas Operacionais
-Linguagens: C (POSIX) + Java (concurrent + monitores)
-Ambiente: Linux/WSL + Windows
+**Autor:** Equipe de Sistemas Operacionais  
+**Linguagens:** C (POSIX) + Java (Concurrent / Monitores)  
+**Ambiente:** Linux / WSL + Windows 
