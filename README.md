@@ -1,112 +1,61 @@
-Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em C (usando pthreads) e Java (usando java.util.concurrent).
 
-# 💻 Exercícios de Threads Linux — POSIX
-
-Este repositório contém implementações completas dos **exercícios de programação com threads em Linux**, incluindo versões em **C (usando pthreads)** e **Java (usando java.util.concurrent e monitores)**.  
-
----
-
-## 📁 Estrutura do Projeto
-
-```text
-📁 Estrutura do Projeto
-
-📁 Estrutura do Projeto
-
-trabalhoso/
-├── .vscode/
-│   ├── c_cpp_properties.json
-│   ├── launch.json
-│   └── settings.json
-│
-├── entrega1/
-│   └── atividades_posix/
-│       ├── C/
-│       │   ├── atividade1.c
-│       │   ├── atividade2.c
-│       │   ├── atividade3.c
-│       │   └── atividade4.c
-│       └── Java/
-│           ├── Atividade1.java
-│           ├── Atividade2.java
-│           ├── Atividade3.java
-│           └── Atividade4.java
-│
-├── exercicios_posix/
-│   ├── exercicio1_duplo_buffer.c
-│   ├── exercicio2_filosofos.c
-│   ├── exercicio3_robos.c
-│   ├── exercicio4_rendezvous.c
-│   └── exercicio5_barreira.c
+│   │       ├── Atividade3.java
+│   │       └── Atividade4.java
+│   └── exercicios_posix/
+│       ├── exercicio1_duplo_buffer.c
+│       ├── exercicio2_filosofos.c
+│       ├── exercicio3_robos.c
+│       ├── exercicio4_rendezvous.c
+│       └── exercicio5_barreira.c
 │
 ├── linux-threads/
-│   ├── parte1/
-│   │   ├── scripts/
-│   │   └── src/
-│   │       └── threads_parte1.c
-│   └── parte2/
-│       └── src/
-│           └── threads_parte2.c
+│   ├── parte1/src/threads_parte1.c
+│   └── parte2/src/threads_parte2.c
 │
 ├── entrega2/
 │   └── BarbeiroDorminhocoMonitores.java
 │
+├── entrega3/
+│   └── DeadlockBarbeiros.java
+│
+├── bins/
 ├── nomes.txt
 ├── Makefile
 └── README.md
-
 ```
 
 ---
 
 ## 🔧 Pré-requisitos
+### 💻 Para Windows
+* **WSL (Subsistema do Windows para Linux)** devidamente instalado.
+* Compilador **GCC** com suporte a `pthread` (instalado no WSL).
+* **Java JDK** (versão 8 ou superior).
+* Utilitário **Make**.
 
-### Windows (WSL)
-- WSL instalado  
-- GCC com pthread  
-- Java JDK 8+  
-- Make  
+### 💻 Para Linux / macOS
+* Compilador **GCC** com suporte a `pthread`.
+* **Java JDK** (versão 8 ou superior).
+* Utilitário **Make**.
+Windows (WSL)
 
-### Linux / macOS
-- GCC com pthread  
-- Java JDK 8+  
-- Make  
+<br>
 
----
+## ♟️ Comandos Disponíveis
 
-## 🚀 Como Compilar e Executar
+Use os seguintes comandos `make` no seu terminal para gerenciar o projeto.
 
-### Compilar
-```bash
-# Tudo
-make all
-# Apenas C
-make c-all
-# Apenas Java
-make java-all
-```
-
-### Executar
-```bash
-# Tudo
-make run-all
-# Apenas C
-make run-c
-# Apenas Java
-make run-java
-```
-
-### Limpeza
-```bash
-make clean
-```
-
-### Verificar WSL
-```bash
-make check-wsl
-```
-
----
+| Comando         | Descrição                                                  |
+| :-------------- | :--------------------------------------------------------- |
+| `make all`      | Compila todos os códigos-fonte (C e Java).                 |
+| `make c-all`    | Compila apenas os códigos em C.                            |
+| `make java-all` | Compila apenas os códigos em Java.                         |
+| `make run-all`  | Executa o projeto principal.                               |
+| `make run-c`    | Executa apenas a parte feita em C.                         |
+| `make run-java` | Executa apenas a parte feita em Java.                      |
+| `make clean`    | Remove todos os arquivos gerados pela compilação.          |
+| `make check-wsl`| **(Apenas Windows)** Verifica a configuração do WSL.       |
+<br>
 
 ## 📚 Descrição dos Exercícios
 
@@ -138,6 +87,8 @@ C: `pthread_rwlock_t` Java: `ReentrantReadWriteLock` (escritor preferencial).
 
 ---
 
+<br>
+
 ## 🧩 Entrega 2 — O Barbeiro Dorminhoco (Java / Monitores)
 
 **Local:** `entrega2/BarbeiroDorminhocoMonitores.java`  
@@ -159,6 +110,8 @@ java -cp entrega2 BarbeiroDorminhocoMonitores 2 4 6
 ```
 
 ---
+
+<br>
 
 ## 🧩 Entrega 3 — Trabalho de Deadlocks (O Problema dos Barbeiros)
 
@@ -238,16 +191,29 @@ java Atividade4 4 2
 - Observe os logs para verificar interleaving.  
 - Ordem de locks garante segurança contra deadlocks.  
 
----
-
-## 📝 Notas
-
-- WSL é necessário no Windows para pthread.  
-- A ordem das threads muda a cada execução.  
-- Performance depende da carga do sistema.  
-- C focado em Linux/Unix; Java multiplataforma.  
 
 ---
+
+
+## 👩‍💻 Membros
+
+<ul>
+  <li>
+    <a > Erick Belo - eab2@cesar.school 📩
+  </li>
+  <li>
+    <a > Gabriel Belo - gnbo2@cesar.school 📩
+  </li>
+  <li>
+    <a > Davi Marques - dmo3@cesar.school 📩
+  </li>
+        <li>
+    <a > Luiz Claudio - lcpmf@cesar.school📩
+  </li>
+       <li>
+  <a >  João Lucas Robalinho - jlvrf@cesar.school📩
+  </li>
+</ul>
 
 **Autor:** Equipe de Sistemas Operacionais  
 **Linguagens:** C (POSIX) + Java (Concurrent / Monitores)  
