@@ -102,7 +102,9 @@ Conceitos: mutex, condition variables, buffer circular
 
 Sincronização: 1 mutex e 1 condition variable
 
-Atividade 1: Produtor/Consumidor com Semáforos
+🧩 Exercícios POSIX:
+
+Exercicio 1: Produtor/Consumidor com Semáforos
 
 C: sem_t
 
@@ -112,7 +114,7 @@ Buffer fixo
 
 Sincronização por semáforos
 
-Atividade 2: Produtor/Consumidor com Condition Variables
+Exercicio 2: Produtor/Consumidor com Condition Variables
 
 C: pthread_cond_t + pthread_mutex_t
 
@@ -120,7 +122,7 @@ Java: ReentrantLock + Condition
 
 Controle por contadores/condições
 
-Atividade 3: Leitores/Escritores com Semáforos
+Exercicio 3: Leitores/Escritores com Semáforos
 
 C: prioridade para escritores
 
@@ -128,7 +130,7 @@ Java: Semaphore
 
 Política: leitores simultâneos, escritor exclusivo
 
-Atividade 4: Leitores/Escritores com RWLocks
+Exercicio 4: Leitores/Escritores com RWLocks
 
 C: pthread_rwlock_t
 
