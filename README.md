@@ -1,4 +1,24 @@
+# 🗒 Exercícios de Threads Linux — POSIX
+<sup>Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em C (usando pthreads) e Java (usando java.util.concurrent).</sup>
 
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+📁 Estrutura do Projeto
+
+trabalhoso/
+├── entrega1/
+│   ├── atividades_posix/
+│   │   ├── C/
+│   │   │   ├── atividade1.c
+│   │   │   ├── atividade2.c
+│   │   │   ├── atividade3.c
+│   │   │   └── atividade4.c
+│   │   └── Java/
+│   │       ├── Atividade1.java
+│   │       ├── Atividade2.java
 │   │       ├── Atividade3.java
 │   │       └── Atividade4.java
 │   └── exercicios_posix/
