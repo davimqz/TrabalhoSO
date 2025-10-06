@@ -2,32 +2,42 @@ Este repositório contém implementações completas dos exercícios de programa
 
 📁 Estrutura do Projeto
 trabalhoso/
+├── entrega1/
+│   ├── atividades_posix/
+│   │   ├── C/
+│   │   │   ├── atividade1.c
+│   │   │   ├── atividade2.c
+│   │   │   ├── atividade3.c
+│   │   │   └── atividade4.c
+│   │   └── Java/
+│   │       ├── Atividade1.java
+│   │       ├── Atividade2.java
+│   │       ├── Atividade3.java
+│   │       └── Atividade4.java
+│   └── exercicios_posix/
+│       ├── exercicio1_duplo_buffer.c
+│       ├── exercicio2_filosofos.c
+│       ├── exercicio3_robos.c
+│       ├── exercicio4_rendezvous.c
+│       └── exercicio5_barreira.c
+│
 ├── linux-threads/
-│   ├── parte1/src/threads_parte1.c
-│   └── parte2/src/threads_parte2.c
-├── exercicios_posix/
-│   ├── exercicio1_duplo_buffer.c
-│   ├── exercicio2_filosofos.c
-│   ├── exercicio3_robos.c
-│   ├── exercicio4_rendezvous.c
-│   └── exercicio5_barreira.c
-├── atividades_posix/
-│   ├── C/
-│   │   ├── atividade1.c
-│   │   ├── atividade2.c
-│   │   ├── atividade3.c
-│   │   └── atividade4.c
-│   └── Java/
-│       ├── Atividade1.java
-│       ├── Atividade2.java
-│       ├── Atividade3.java
-│       └── Atividade4.java
+│   ├── parte1/
+│   │   ├── scripts/
+│   │   └── src/
+│   │       └── threads_parte1.c
+│   └── parte2/
+│       └── src/
+│           └── threads_parte2.c
+│
 ├── entrega2/
-│   └── atividade2/
-│       └── BarbeiroDorminhocoMonitores.java
+│   └── BarbeiroDorminhocoMonitores.java
+│
 ├── bins/
 ├── nomes.txt
-└── Makefile
+├── Makefile
+└── README.md
+
 
 🔧 Pré-requisitos
 Windows (WSL)
