@@ -64,7 +64,6 @@ trabalhoso/
 * Compilador **GCC** com suporte a `pthread`.
 * **Java JDK** (versão 8 ou superior).
 * Utilitário **Make**.
-Windows (WSL)
 
 <br>
 
@@ -82,23 +81,26 @@ Use os seguintes comandos `make` no seu terminal para gerenciar o projeto.
 | `make run-java` | Executa apenas a parte feita em Java.                      |
 | `make clean`    | Remove todos os arquivos gerados pela compilação.          |
 | `make check-wsl`| **(Apenas Windows)** Verifica a configuração do WSL.       |
+
 <br>
 
 ## 📚 Descrição dos Exercícios
 
-### Parte 1 — Análise de Performance (`threads_parte1.c`)
+### Parte 1 — Análise de Performance
+**Arquivo:** `entrega1/linux-threads/parte1/src/threads_parte1.c`  
 - Objetivo: medir performance com múltiplas threads.  
 - Função: f(x) = (x² + 1) / (2x + 3).  
 - Conceitos: criação de threads, sincronização básica, medição de tempo.  
 
-### Parte 2 — Barbeiro Adormecido (`threads_parte2.c`)
+### Parte 2 — Barbeiro Adormecido
+**Arquivo:** `entrega1/linux-threads/parte2/src/threads_parte2.c`  
 - Objetivo: implementar o problema clássico do barbeiro adormecido.  
 - Sincronização: 1 mutex e 1 condition variable.  
 - Conceitos: mutex, condition variables, buffer circular.  
 
 ---
 
-### Atividades POSIX
+### Atividades POSIX (entrega1)
 
 **Atividade 1 — Produtor/Consumidor (Semáforos)**  
 C: `sem_t` Java: `Semaphore` Buffer fixo e controle por semáforos.  
@@ -138,43 +140,12 @@ java -cp entrega2 BarbeiroDorminhocoMonitores 2 4 6
 
 ---
 
-<br>
-
-## 🧩 Entrega 2 — Trabalho de Deadlocks (O Problema dos Barbeiros)
-
-**Local:** `entrega2/DeadlockBarbeiros.java`  
-**Base:** *Tanenbaum – Sistemas Operacionais Modernos*  
-
-**Descrição:**
-- Vários barbeiros e cadeiras de espera.  
-- Clientes chegam → sentam se tiver vaga, senão saem.  
-- Barbeiros dormem sem clientes.  
-- Evita **deadlocks** e **starvation**.  
-- Sincronização com monitores Java (`wait/notifyAll`).  
-
-**Execução:**
-```bash
-javac entrega2/DeadlockBarbeiros.java
-java -cp entrega2 DeadlockBarbeiros 2 4 10
-```
-
-**Saída esperada:**
-```
-Cliente 1 cortando cabelo com Barbeiro 2
-Cliente 3 terminou e saiu da barbearia
-Cliente 5 tentou entrar, mas estava lotada
-Barbeiro 1 dormindo...
-Barbeiro 2 acordou! Começando os trabalhos!
-```
-
----
-
 ## 🎯 Conceitos Implementados
 
 **Primitivas C:** `sem_t`, `pthread_mutex_t`, `pthread_cond_t`, `pthread_rwlock_t`  
 **Primitivas Java:** `Semaphore`, `ReentrantLock`, `Condition`, `ReadWriteLock`, `wait/notifyAll`  
 
-**Padrões de Concorrência:** Produtor/Consumidor, Leitores/Escritores, Exclusão Mútua, Sinalização, Controle de Deadlocks.  
+**Padrões de Concorrência:** Produtor/Consumidor, Leitores/Escritores, Exclusão Mútua, Sinalização.  
 
 ---
 
@@ -225,23 +196,13 @@ java Atividade4 4 2
 ## 👩‍💻 Membros
 
 <ul>
-  <li>
-    <a > Erick Belo - eab2@cesar.school 📩
-  </li>
-  <li>
-    <a > Gabriel Belo - gnbo2@cesar.school 📩
-  </li>
-  <li>
-    <a > Davi Marques - dmo3@cesar.school 📩
-  </li>
-        <li>
-    <a > Luiz Claudio - lcpmf@cesar.school📩
-  </li>
-       <li>
-  <a >  João Lucas Robalinho - jlvrf@cesar.school📩
-  </li>
+  <li>Erick Belo — eab2@cesar.school 📩</li>
+  <li>Gabriel Belo — gnbo2@cesar.school 📩</li>
+  <li>Davi Marques — dmo3@cesar.school 📩</li>
+  <li>Luiz Claudio — lcpmf@cesar.school 📩</li>
+  <li>João Lucas Robalinho — jlvrf@cesar.school 📩</li>
 </ul>
 
 **Autor:** Equipe de Sistemas Operacionais  
 **Linguagens:** C (POSIX) + Java (Concurrent / Monitores)  
-**Ambiente:** Linux / WSL + Windows 
+**Ambiente:** Linux / WSL + Window
