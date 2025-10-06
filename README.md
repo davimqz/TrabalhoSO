@@ -27,21 +27,21 @@ trabalhoso/
 │   │       ├── Atividade3.java
 │   │       └── Atividade4.java
 │   │
-│   └── exercicios_posix/
-│       ├── exercicio1_duplo_buffer.c
-│       ├── exercicio2_filosofos.c
-│       ├── exercicio3_robos.c
-│       ├── exercicio4_rendezvous.c
-│       └── exercicio5_barreira.c
-│
-├── linux-threads/
-│   ├── parte1/
-│   │   ├── scripts/
-│   │   └── src/
-│   │       └── threads_parte1.c
-│   └── parte2/
-│       └── src/
-│           └── threads_parte2.c
+│   ├── exercicios_posix/
+│   │   ├── exercicio1_duplo_buffer.c
+│   │   ├── exercicio2_filosofos.c
+│   │   ├── exercicio3_robos.c
+│   │   ├── exercicio4_rendezvous.c
+│   │   └── exercicio5_barreira.c
+│   │
+│   └── linux-threads/
+│       ├── parte1/
+│       │   ├── scripts/
+│       │   └── src/
+│       │       └── threads_parte1.c
+│       └── parte2/
+│           └── src/
+│               └── threads_parte2.c
 │
 ├── entrega2/
 │   └── BarbeiroDorminhocoMonitores.java
