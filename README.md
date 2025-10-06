@@ -140,9 +140,9 @@ java -cp entrega2 BarbeiroDorminhocoMonitores 2 4 6
 
 <br>
 
-## 🧩 Entrega 3 — Trabalho de Deadlocks (O Problema dos Barbeiros)
+## 🧩 Entrega 2 — Trabalho de Deadlocks (O Problema dos Barbeiros)
 
-**Local:** `entrega3/DeadlockBarbeiros.java`  
+**Local:** `entrega2/DeadlockBarbeiros.java`  
 **Base:** *Tanenbaum – Sistemas Operacionais Modernos*  
 
 **Descrição:**
@@ -154,8 +154,8 @@ java -cp entrega2 BarbeiroDorminhocoMonitores 2 4 6
 
 **Execução:**
 ```bash
-javac entrega3/DeadlockBarbeiros.java
-java -cp entrega3 DeadlockBarbeiros 2 4 10
+javac entrega2/DeadlockBarbeiros.java
+java -cp entrega2 DeadlockBarbeiros 2 4 10
 ```
 
 **Saída esperada:**
@@ -182,8 +182,8 @@ Barbeiro 2 acordou! Começando os trabalhos!
 
 **C:**
 ```bash
-wsl gcc -Wall -Wextra -pthread -lm -o bins/atividade1 entrega1/atividades_posix/C/atividade1.c
-wsl ./bins/atividade1
+gcc -Wall -Wextra -pthread -lm -o atividade1 entrega1/atividades_posix/C/atividade1.c
+./atividade1
 ```
 
 **Java:**
@@ -196,7 +196,7 @@ java Atividade4
 **Parâmetros:**
 ```bash
 # C
-wsl ./bins/atividade1 5 3
+./atividade1 5 3
 # Java
 java Atividade4 4 2
 ```
