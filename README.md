@@ -118,10 +118,22 @@ C: `pthread_rwlock_t` Java: `ReentrantReadWriteLock` (escritor preferencial).
 
 <br>
 
-## 🧩 Entrega 2 — O Barbeiro Dorminhoco (Java / Monitores)
+## 💈 Entrega 2 — O Barbeiro Dorminhoco (Java / Semáforos)
+<sup>Esta implementação resolve o problema clássico do **Barbeiro Dorminhoco** utilizando **Semáforos** para controlar a concorrência entre as threads de Barbeiros e Clientes em Java.</sup>
 
-**Local:** `entrega2/BarbeiroDorminhocoMonitores.java`  
-**Sincronização:** apenas monitores Java (`synchronized`, `wait`, `notifyAll`)  
+**Local do Arquivo:** `entrega2/BarbeiroDorminhoco.java`
+
+### 📝 Descrição do Problema
+
+A barbearia possui `n` barbeiros, uma cadeira de corte para cada um, e `m` cadeiras de espera para os clientes.
+- Se não há clientes, os barbeiros dormem.
+- Ao chegar um cliente, ele acorda um barbeiro para cortar o cabelo.
+- Se todos os barbeiros estiverem ocupados, o cliente senta em uma cadeira de espera vaga.
+- Se todas as cadeiras de espera estiverem ocupadas, o cliente vai embora e volta outra hora.
+
+O desafio é coordenar essas ações usando threads sem gerar condições de corrida ou deadlocks, garantindo que os clientes sejam atendidos na ordem em que chegaram.
+
+<br>
 
 **Parâmetros (CLI):**
 ```
