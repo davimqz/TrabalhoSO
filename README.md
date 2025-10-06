@@ -1,6 +1,7 @@
 Este repositório contém implementações completas dos exercícios de programação com threads em Linux, incluindo versões em C (usando pthreads) e Java (usando java.util.concurrent).
 
 📁 Estrutura do Projeto
+
 trabalhoso/
 ├── entrega1/
 │   ├── atividades_posix/
@@ -37,6 +38,7 @@ trabalhoso/
 ├── nomes.txt
 ├── Makefile
 └── README.md
+
 
 
 🔧 Pré-requisitos
